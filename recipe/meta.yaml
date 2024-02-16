@@ -1,5 +1,5 @@
 {% set name = "loopy" %}
-{% set version = "2020.2.1" %}
+{% set version = "2024.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,11 +7,11 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 8726ff3b0396301e26cf61e855bf8d0c19ab3ff4c4ad705edeae4eeef081c081
+  sha256: d7a063b668de8f2ada6f70f8db98865005a46608e7d2d54472f70028f059fc17
 
 build:
   noarch: python
-  number: 1
+  number: 0
   script: "{{ PYTHON }} -m pip install . -vv"
 
 requirements:
@@ -28,7 +28,7 @@ requirements:
     - islpy >=2019.1
     - codepy >=2017.1
     - colorama
-    - mako 
+    - mako
     - pyrsistent
     - pytest
 
