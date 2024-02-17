@@ -31,6 +31,7 @@ requirements:
     - mako
     - pyrsistent
     - pytest
+    - immutables
 
 test:
   imports:
