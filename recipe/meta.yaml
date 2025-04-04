@@ -34,6 +34,7 @@ requirements:
     - pyrsistent
     - pytest
     - immutables
+    - constantdict
 
 test:
   imports:
