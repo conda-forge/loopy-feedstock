@@ -1,5 +1,6 @@
 {% set name = "loopy" %}
-{% set version = "2024.1" %}
+{% set version = "2025.1" %}
+{% set python_min = "3.10" %}
 
 package:
   name: {{ name|lower }}
@@ -7,18 +8,18 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: d7a063b668de8f2ada6f70f8db98865005a46608e7d2d54472f70028f059fc17
+  sha256: 2de13505e2b3faa14917708e5eae1420e5eee19ba81bc46157c397292e9721e3
 
 build:
   noarch: python
-  number: 1
+  number: 0
   script: "{{ PYTHON }} -m pip install . -vv"
 
 requirements:
   host:
     - python {{ python_min }}
     - pip
-    - setuptools
+    - hatchling
   run:
     - python >={{ python_min }}
     - pytools >=2021.2.4
@@ -33,6 +34,7 @@ requirements:
     - pyrsistent
     - pytest
     - immutables
+    - constantdict
 
 test:
   imports:
