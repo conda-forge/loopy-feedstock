@@ -1,5 +1,5 @@
 {% set name = "loopy" %}
-{% set version = "2025.1" %}
+{% set version = "2025.2" %}
 {% set python_min = "3.10" %}
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 2de13505e2b3faa14917708e5eae1420e5eee19ba81bc46157c397292e9721e3
+  sha256: 4bbeebf3a9e37a589a92ac4434d9e60d1382529ff2d4a07a209b1ff51fdd9830
 
 build:
   noarch: python
