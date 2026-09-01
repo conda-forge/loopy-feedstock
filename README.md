@@ -19,7 +19,6 @@ Loopy's core idea is that a computation should be described simply
 and then transformed into a version that gets high performance. This
 transformation takes place under user control, from within Python.
 
-
 Current build status
 ====================
 
@@ -201,7 +200,4 @@ Feedstock Maintainers
 
 * [@inducer](https://github.com/inducer/)
 * [@jan-janssen](https://github.com/jan-janssen/)
-
-
-<!-- dummy commit to enable rerendering -->
 
