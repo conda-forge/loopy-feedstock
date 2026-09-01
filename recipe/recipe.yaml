@@ -1,26 +1,29 @@
-{% set name = "loopy" %}
-{% set version = "2025.2" %}
+schema_version: 1
+
+context:
+  name: loopy
+  version: "2025.2"
 
 package:
-  name: {{ name|lower }}
-  version: "{{ version }}"
+  name: ${{ name|lower }}
+  version: ${{ version }}
 
 source:
-  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/${{ name }}-${{ version }}.tar.gz
   sha256: 4bbeebf3a9e37a589a92ac4434d9e60d1382529ff2d4a07a209b1ff51fdd9830
 
 build:
+  number: 2
   noarch: python
-  number: 1
-  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+  script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
 requirements:
   host:
-    - python {{ python_min }}
+    - python ${{ python_min }}
     - pip
     - hatchling
   run:
-    - python >={{ python_min }}
+    - python >=${{ python_min }}
     - pytools >=2021.2.4
     - pymbolic >=2019.2
     - genpy >=2016.1.2
@@ -35,29 +38,28 @@ requirements:
     - immutables
     - constantdict
 
-test:
-  imports:
-    - loopy
-  requires:
-    - pip
-    - python {{ python_min }}
-  commands:
-    - pip check
+tests:
+  - python:
+      imports:
+        - loopy
+      pip_check: true
+      python_version:
+        - ${{ python_min }}
+        - "*"
 
 about:
-  home: http://mathema.tician.de/software/loopy
   license: MIT
-  license_family: MIT
   license_file: LICENSE
-  summary: 'A code generator for array-based code on CPUs and GPUs'
+  summary: A code generator for array-based code on CPUs and GPUs
   description: |
     Loopy lets you easily generate the tedious, complicated code that
     is necessary to get good performance out of GPUs and multi-core CPUs.
     Loopy's core idea is that a computation should be described simply
     and then transformed into a version that gets high performance. This
     transformation takes place under user control, from within Python.
-  doc_url: http://mathema.tician.de/software/loopy
-  dev_url: https://github.com/inducer/loopy
+  homepage: http://mathema.tician.de/software/loopy
+  repository: https://github.com/inducer/loopy
+  documentation: http://mathema.tician.de/software/loopy
 
 extra:
   recipe-maintainers:
