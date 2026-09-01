@@ -19,7 +19,6 @@ Loopy's core idea is that a computation should be described simply
 and then transformed into a version that gets high performance. This
 transformation takes place under user control, from within Python.
 
-
 Current build status
 ====================
 
